@@ -1,7 +1,16 @@
+# Secrets
+.env
 
+# Python
 venv/
 __pycache__/
 *.pyc
+
+# Django build/static
 staticfiles/
+
+# Local DB (if ever used)
 db.sqlite3
+
+# OS
 .DS_Store
