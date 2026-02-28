@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "projects",
     "timeline",
     "certifications",
+
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -157,4 +159,20 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",  #REQUIRED
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Aldrey Portfolio API",
+    "DESCRIPTION": "Public read-only portfolio API (JWT required for write operations).",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    # Optional: helps grouping in docs
+    "TAGS": [
+        {"name": "profile", "description": "Public profile endpoints"},
+        {"name": "projects", "description": "Projects endpoints"},
+        {"name": "timeline", "description": "Timeline endpoints"},
+        {"name": "certifications", "description": "Certifications endpoints"},
+        {"name": "auth", "description": "JWT authentication endpoints"},
+    ],
 }
